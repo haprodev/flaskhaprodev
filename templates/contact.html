@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block title %}
+<title>{{ title }}</title>
+{% endblock %}
+
+{% block content %}
+<form id="contact" action="{{ url_for('contact') }}" method="POST">
+  <input name="name" type="text" value="اسم شما"/>
+  <br/> <input name="email" type="email" value="ایمیل شما"/>
+  <br/><textarea name='comment'></textarea>
+  <br/> <input name="submit" type="submit" value="ارسال "/>
+</form>
+
+{% if usercomment %}
+<p>نام شما:  {{ usercomment.name }}</p>
+<p>ایمیل شما: {{ usercomment.email }}e</p>
+<p>نظرشما:  {{ usercomment.comment }}</p>
+{% endif %}
+{% endblock %}
